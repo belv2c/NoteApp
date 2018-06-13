@@ -23,7 +23,6 @@ namespace NoteApp
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
-                "~/Scripts/angular-ui/ui-bootstrap-tpls.*",
                 "~/app/app.js")
                 .IncludeDirectory("~/app/controllers", "*.js", true)
                 .IncludeDirectory("~/app/services", "*.js", true));
