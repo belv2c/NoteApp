@@ -6,14 +6,14 @@ using System.Web.Http;
 
 namespace NoteApp.Controllers
 {
-    [RoutePrefix("api/notes")]
-    public class DepartmentController : ApiController
+    [RoutePrefix("api/users")]
+    public class UserController : ApiController
     {
         [HttpGet, Route]
-        public HttpResponseMessage ListNote()
+        public HttpResponseMessage ListUser()
         {
-            var repository = new NoteRepository();
-            var result = repository.ListNote();
+            var repository = new UserRepository();
+            var result = repository.ListUser();
             return Request.CreateListRecordsResponse(result);
         }
     }
