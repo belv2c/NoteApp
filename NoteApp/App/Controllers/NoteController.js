@@ -1,5 +1,5 @@
-﻿app.controller("NoteController", ["$scope", "$http", "NoteService",
-    function ($scope, $http, NoteService) {
+﻿app.controller("NoteController", ["$scope", "$http", "$location", "NoteService",
+    function ($scope, $http, $location, NoteService) {
         $scope.message = "this is a test";
 
         var getAllNotes = function () {
@@ -16,6 +16,10 @@
             }).catch(function (err) {
                 console.log("error in addDepartment in controller", err);
             });
+        };
+
+        $scope.navigateToHome = function () {
+            $location.path(`/Home`);
         };
 
     }
