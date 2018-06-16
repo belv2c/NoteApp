@@ -1,4 +1,4 @@
-﻿app.service("HomeService", function ($http, $q, $rootScope) {
+﻿app.service("NoteService", function ($http, $q, $rootScope) {
 
     const getAllNotes = function () {
         var noteList = [];
