@@ -16,5 +16,13 @@ namespace NoteApp.Controllers
             var result = repository.ListNote();
             return Request.CreateListRecordsResponse(result);
         }
+
+        [Route, HttpPost]
+        public HttpResponseMessage AddNewNote(Note note)
+        {
+            var repository = new NoteRepository();
+            var result = repository.AddNewNote(note);
+            return Request.CreateAddRecordResponse(result);
+        }
     }
 }

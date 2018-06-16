@@ -25,5 +25,19 @@ namespace NoteApp.Services
                 return getAllNotes.ToList();
             }
         }
+
+        public int AddNewNote(Note note)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+
+                var sql = @"INSERT INTO dbo.Notes
+                            (title, notebody)
+                            VALUES 
+                            (@title, @notebody)";
+                return db.Execute(sql, note);
+            }
+        }
     }
 }
