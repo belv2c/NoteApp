@@ -21,23 +21,37 @@ namespace NoteApp.Services
             using (var db = GetDb())
             {
                 db.Open();
-                var getAllNotes = db.Query<Note>(@"select * from dbo.Notes");
+                var getAllNotes = db.Query<Note>(@"select * from dbo.Note");
                 return getAllNotes.ToList();
             }
         }
 
-        public int AddNewNote(Note note)
+        //public int AddNewNote(Note note)
+        //{
+        //    using (var db = GetDb())
+        //    {
+        //        db.Open();
+
+        //        var sql = @"INSERT INTO dbo.Note
+        //                    (title, notebody)
+        //                    VALUES 
+        //                    (@title, @notebody)";
+        //        return db.Execute(sql, note);
+        //    }
+        //}
+
+        public int AddNote(Note dto)
         {
             using (var db = GetDb())
             {
                 db.Open();
-
                 var sql = @"INSERT INTO dbo.Notes
-                            (title, notebody)
+                            (noteid, title, notebody, isdeleted, createdate)
                             VALUES 
-                            (@title, @notebody)";
-                return db.Execute(sql, note);
+                            (@noteid, @title, @notebody, @isdeleted, @createdate)";
+                return db.Execute(sql, dto);
             }
         }
+
     }
 }
