@@ -201,10 +201,12 @@
   <ItemGroup>
     <Content Include="App\App.js" />
     <Content Include="App\Controllers\HomeController.js" />
+    <Content Include="App\Controllers\NoteAddController.js" />
     <Content Include="App\Controllers\NoteController.js" />
     <Content Include="App\Partials\home.html" />
     <Content Include="App\Partials\navbar.html" />
     <Content Include="App\Partials\note.html" />
+    <Content Include="App\Partials\noteadd.html" />
     <Content Include="App\Services\NoteService.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />
