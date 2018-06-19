@@ -17,11 +17,19 @@ namespace NoteApp.Controllers
             return Request.CreateListRecordsResponse(result);
         }
 
+        //[Route, HttpPost]
+        //public HttpResponseMessage AddNewNote(Note note)
+        //{
+        //    var repository = new NoteRepository();
+        //    var result = repository.AddNewNote(note);
+        //    return Request.CreateAddRecordResponse(result);
+        //}
+
         [Route, HttpPost]
-        public HttpResponseMessage AddNewNote(Note note)
+        public HttpResponseMessage AddNote(Note dto)
         {
             var repository = new NoteRepository();
-            var result = repository.AddNewNote(note);
+            var result = repository.AddNote(dto);
             return Request.CreateAddRecordResponse(result);
         }
     }
