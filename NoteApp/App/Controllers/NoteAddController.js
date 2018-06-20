@@ -9,10 +9,10 @@
         });
 
         $scope.addNote = function () {
-            NoteService.addNote($scope.notes).then(function () {
-                $scope.navigateToEmployees();
+            NoteService.addNote($scope.note).then(function () {
+                $scope.navigateToNoteList();
             }).catch(function (err) {
-                console.log("Error in EmployeeAddController", err);
+                console.log("Error in NoteAddController", err);
             });
         };
 

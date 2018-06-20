@@ -10,10 +10,10 @@ namespace NoteApp.Controllers
     public class DepartmentController : ApiController
     {
         [Route, HttpPost]
-        public HttpResponseMessage AddNote(Note dto)
+        public HttpResponseMessage AddNote(Note note)
         {
             var repository = new NoteRepository();
-            var result = repository.AddNote(dto);
+            var result = repository.AddNote(note);
             return Request.CreateAddRecordResponse(result);
         }
 
