@@ -207,6 +207,7 @@
     <Content Include="App\Partials\navbar.html" />
     <Content Include="App\Partials\note.html" />
     <Content Include="App\Partials\noteadd.html" />
+    <Content Include="App\Services\NoteAddService.js" />
     <Content Include="App\Services\NoteService.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />

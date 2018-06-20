@@ -10,13 +10,13 @@
             });
         }();
 
-        const addNote = function () {
-            NoteService.addNote($scope.note).then(function (results2) {
-                console.log("This is from addnote", results2);
-            }).catch(function (err) {
-                console.log("error in addDepartment in controller", err);
-            });
-        };
+        //const addNote = function () {
+        //    NoteService.addNote($scope.note).then(function (results2) {
+        //        console.log("This is from addnote", results2);
+        //    }).catch(function (err) {
+        //        console.log("error in addDepartment in controller", err);
+        //    });
+        //};
 
         $scope.navigateToHome = function () {
             $location.path(`/Home`);
