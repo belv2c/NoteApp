@@ -16,42 +16,30 @@ namespace NoteApp.Services
             return new SqlConnection(ConfigurationManager.ConnectionStrings["notes_app"].ConnectionString);
         }
 
+        public int AddNote(Note note)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+                var sql = @"INSERT INTO dbo.Notee
+                            (title, notebody, createdate)
+                            VALUES 
+                            (@title, @notebody, @createdate)";
+                return db.Execute(sql, note);
+            }
+        }
+
+
         public List<Note> ListNote()
         {
             using (var db = GetDb())
             {
                 db.Open();
-                var getAllNotes = db.Query<Note>(@"select * from dbo.Note");
+                var getAllNotes = db.Query<Note>(@"select * from dbo.Notee");
                 return getAllNotes.ToList();
             }
         }
 
-        //public int AddNewNote(Note note)
-        //{
-        //    using (var db = GetDb())
-        //    {
-        //        db.Open();
-
-        //        var sql = @"INSERT INTO dbo.Note
-        //                    (title, notebody)
-        //                    VALUES 
-        //                    (@title, @notebody)";
-        //        return db.Execute(sql, note);
-        //    }
-        //}
-
-        public int AddNote(Note dto)
-        {
-            using (var db = GetDb())
-            {
-                db.Open();
-                var sql = @"INSERT INTO dbo.Notes
-                            (noteid, title, notebody, isdeleted, createdate)
-                            VALUES 
-                            (@noteid, @title, @notebody, @isdeleted, @createdate)";
-                return db.Execute(sql, dto);
-            }
-        }
 
     }
 }

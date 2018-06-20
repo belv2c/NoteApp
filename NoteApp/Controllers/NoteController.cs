@@ -9,6 +9,14 @@ namespace NoteApp.Controllers
     [RoutePrefix("api/notes")]
     public class DepartmentController : ApiController
     {
+        [Route, HttpPost]
+        public HttpResponseMessage AddNote(Note note)
+        {
+            var repository = new NoteRepository();
+            var result = repository.AddNote(note);
+            return Request.CreateAddRecordResponse(result);
+        }
+
         [HttpGet, Route]
         public HttpResponseMessage ListNote()
         {
@@ -17,20 +25,5 @@ namespace NoteApp.Controllers
             return Request.CreateListRecordsResponse(result);
         }
 
-        //[Route, HttpPost]
-        //public HttpResponseMessage AddNewNote(Note note)
-        //{
-        //    var repository = new NoteRepository();
-        //    var result = repository.AddNewNote(note);
-        //    return Request.CreateAddRecordResponse(result);
-        //}
-
-        [Route, HttpPost]
-        public HttpResponseMessage AddNote(Note dto)
-        {
-            var repository = new NoteRepository();
-            var result = repository.AddNote(dto);
-            return Request.CreateAddRecordResponse(result);
-        }
     }
 }
