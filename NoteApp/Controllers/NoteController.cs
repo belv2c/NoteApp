@@ -25,5 +25,14 @@ namespace NoteApp.Controllers
             return Request.CreateListRecordsResponse(result);
         }
 
+        [HttpDelete, Route("{noteId}")]
+        public HttpResponseMessage DeleteNote(int noteId)
+        {
+            var repo = new NoteRepository();
+            var result = repo.DeleteNote(noteId);
+            return Request.CreateUpdateRecordResponse(result);
+        }
+
+
     }
 }

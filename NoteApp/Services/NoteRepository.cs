@@ -29,7 +29,6 @@ namespace NoteApp.Services
             }
         }
 
-
         public List<Note> ListNote()
         {
             using (var db = GetDb())
@@ -37,6 +36,17 @@ namespace NoteApp.Services
                 db.Open();
                 var getAllNotes = db.Query<Note>(@"select * from dbo.Notee");
                 return getAllNotes.ToList();
+            }
+        }
+
+        internal int DeleteNote(int noteId)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+                var sql = @"DELETE FROM [dbo].[Notee]
+                             WHERE NoteId = @NoteId";
+                return db.Execute(sql, new { noteId });
             }
         }
 

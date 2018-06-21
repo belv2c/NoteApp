@@ -1,5 +1,5 @@
-﻿app.controller("NoteController", ["$scope", "$http", "$location", "NoteService",
-    function ($scope, $http, $location, NoteService) {
+﻿app.controller("NoteController", ["$scope", "$http", "$location", "$routeParams", "NoteService",
+    function ($scope, $http, $location, $routeParams, NoteService) {
         $scope.message = "this is a test";
 
         var getAllNotes = function () {
@@ -10,9 +10,18 @@
             });
         }();
 
-        //$scope.navigateToHome = function () {
-        //    $location.path(`/Home`);
-        //};
+        $scope.deleteNote = function () {
+            NoteService.deleteNote($routeParams.id).then(function (results) {
+                console.log(results);
+                $scope.navigateToNoteList();
+            }).catch(function (err) {
+                console.log("error in deleteNote in controller", err);
+            });
+        };
+
+        $scope.navigateToNoteList = function () {
+            $location.path('/notes');
+        };
 
         $scope.navigateToNoteForm = function () {
             $location.path(`/noteadd`);

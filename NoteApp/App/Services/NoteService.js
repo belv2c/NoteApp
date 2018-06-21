@@ -16,5 +16,15 @@
         });
     };
 
-    return { getAllNotes };
+    var deleteNote = function (noteId) {
+        return $q((resolve, reject) => {
+            $http.delete(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
+                resolve(results);
+            }).catch(function (err) {
+                reject("error in deleteNote in Service", err);
+            });
+        });
+    }
+
+    return { getAllNotes, deleteNote };
 });
