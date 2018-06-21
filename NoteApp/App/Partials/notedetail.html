@@ -1,20 +1,23 @@
-﻿<div ng-controller="NoteController" id="note-detail">
-
-    <h2>Edit Note</h2>
-
-    <button ng-click="navigateToNoteForm()" class="btn btn-primary new-btn">New Note + </button>
-
-
-    <div class="notes-row" ng-repeat="note in notes">
-        <p>{{note.NoteId}}</p>
-        <p>{{note.Title}}</p>
-        <p>{{note.NoteBody}}</p>
-        <p>{{note.CreateDate}}</p>
-
-        <button type="button" ng-click="deleteNote(note.noteId)" class="btn btn-danger">Delete</button>
+﻿<div id="details-container" class="container-fluid">
+    <h1>Edit note</h1>
+    <button ng-click="navigateToNoteList()" class="btn btn-primary offset-md-5 add-btn">Go Back</button>
+    <div class="row align-items-center justify-content-center">
+        <div class="main-tbl-div">
+            <table class="table table-striped table-bordered table-hover">
+                <caption>Editing note: {{note.Title}}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="th">Date created:</th>
+                        <th scope="col" class="th">NoteBody</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{note.CreateDate}}</td>
+                        <td>{{note.NoteBody}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </div>
-
-
-
