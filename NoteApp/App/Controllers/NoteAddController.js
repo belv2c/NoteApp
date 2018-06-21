@@ -1,7 +1,6 @@
 ﻿app.controller("NoteAddController", ["$scope", "$http", "$location", "$routeParams", "NoteAddService",
     function ($scope, $http, $location, $routeParams, NoteAddService) {
 
-
         $scope.addNote = function () {
             NoteAddService.addNote($scope.note).then(function () {
                 $scope.navigateToNoteList();
@@ -11,7 +10,7 @@
         };
 
         $scope.navigateToNoteList = function () {
-            $location.path('/note');
+            $location.path('/notes');
         };
 
     }

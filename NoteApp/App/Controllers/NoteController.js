@@ -10,9 +10,9 @@
             });
         }();
 
-        $scope.navigateToHome = function () {
-            $location.path(`/Home`);
-        };
+        //$scope.navigateToHome = function () {
+        //    $location.path(`/Home`);
+        //};
 
         $scope.navigateToNoteForm = function () {
             $location.path(`/noteadd`);
