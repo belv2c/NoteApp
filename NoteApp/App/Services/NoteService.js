@@ -16,15 +16,42 @@
         });
     };
 
-    var deleteNote = function (noteId) {
+ 
+
+    //var updateNote = function (note) {
+    //    return $q((resolve, reject) => {
+    //        $http.put(`http://localhost:49935/api/notes`, JSON.stringify(note)).then(function (results) {
+    //            resolve(results);
+    //        }).catch(function (err) {
+    //            reject("error in getNoteById in Service", err);
+    //        });
+    //    });
+    //}
+
+    //const deleteNote = function (noteId) {
+    //    return $q((resolve, reject) => {
+    //        $http.delete(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
+    //            resolve(results);
+    //        }).catch(function (err) {
+    //            reject("error in deleteNote in Service", err);
+    //        });
+    //    });
+    //};
+
+    const addNote = function (note) {
         return $q((resolve, reject) => {
-            $http.delete(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
+            $http.post(`http://localhost:49935/api/notes`, JSON.stringify(note)).then(function (results) {
+                console.log("wow");
                 resolve(results);
             }).catch(function (err) {
-                reject("error in deleteNote in Service", err);
+                reject("error in addNote in Service", err);
             });
         });
-    }
+    };
 
-    return { getAllNotes, deleteNote };
+    const getNoteById = function (noteId) {
+        return $http.get(`/api/notes/${noteId}`);
+    };
+
+    return { getAllNotes, addNote, getNoteById };
 });

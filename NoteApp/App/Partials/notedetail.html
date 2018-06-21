@@ -1,0 +1,20 @@
+﻿<div ng-controller="NoteController" id="note-detail">
+
+    <h2>Edit Note</h2>
+
+    <button ng-click="navigateToNoteForm()" class="btn btn-primary new-btn">New Note + </button>
+
+
+    <div class="notes-row" ng-repeat="note in notes">
+        <p>{{note.NoteId}}</p>
+        <p>{{note.Title}}</p>
+        <p>{{note.NoteBody}}</p>
+        <p>{{note.CreateDate}}</p>
+
+        <button type="button" ng-click="deleteNote(note.noteId)" class="btn btn-danger">Delete</button>
+    </div>
+
+</div>
+
+
+

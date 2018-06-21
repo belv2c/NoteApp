@@ -1,8 +1,8 @@
-﻿app.controller("NoteAddController", ["$scope", "$http", "$location", "$routeParams", "NoteAddService",
-    function ($scope, $http, $location, $routeParams, NoteAddService) {
+﻿app.controller("NoteAddController", ["$scope", "$http", "$location", "$routeParams", "NoteService",
+    function ($scope, $http, $location, $routeParams, NoteService) {
 
         $scope.addNote = function () {
-            NoteAddService.addNote($scope.note).then(function () {
+            NoteService.addNote($scope.note).then(function () {
                 $scope.navigateToNoteList();
             }).catch(function (err) {
                 console.log("Error in NoteAddController", err);

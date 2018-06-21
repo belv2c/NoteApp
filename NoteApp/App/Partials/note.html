@@ -4,13 +4,10 @@
 
 
     <div class="notes-row" ng-repeat="note in notes">
-        <p>{{note.NoteId}}</p>
         <p>{{note.Title}}</p>
-        <p>{{note.NoteBody}}</p>
         <p>{{note.CreateDate}}</p>
 
-    <button type="button" class="btn btn-warning">Edit</button>
-    <button type="button" ng-click="deleteNote(note.noteId)" class="btn btn-danger">Delete</button>
+    <button type="button" ng-click="navigateToNoteDetail(note.NoteId)" class="btn btn-warning">Edit</button>
     </div>
 
 </div>

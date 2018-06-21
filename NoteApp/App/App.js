@@ -19,10 +19,22 @@ app.config(["$routeProvider", function ($routeProvider) {
             controller: "NoteAddController"
         })
 
-        .when("/notes/:id",
+        .when("/notedetail/:noteId",
+        {
+            templateUrl: "/App/Partials/notedetail.html",
+            controller: "NoteController"
+        })
+
+        .when("/notes/:noteId",
         {
             templateUrl: "/App/Partials/note.html",
             controller: "NoteController"
+        })
+
+        .when("/notedetail",
+        {
+            templateUrl: "/App/Partials/notedetail.html",
+            controller: "NoteDetailController"
         })
 
         .otherwise('/');

@@ -10,21 +10,30 @@
             });
         }();
 
-        $scope.deleteNote = function () {
-            NoteService.deleteNote($routeParams.id).then(function (results) {
-                console.log(results);
-                $scope.navigateToNoteList();
+        var getNoteById = function () {
+            NoteService.getNoteById($routeParams.id).then(function (results) {
+                $scope.notes = results.data;
+                console.log("note", results.data);
             }).catch(function (err) {
-                console.log("error in deleteNote in controller", err);
+                console.log("error in getNoteById in controller", err);
             });
-        };
+        }();
 
+        
         $scope.navigateToNoteList = function () {
             $location.path('/notes');
         };
 
         $scope.navigateToNoteForm = function () {
             $location.path(`/noteadd`);
+        };
+
+        //$scope.navigateToNoteDetail = function () {
+        //    $location.path(`/notedetail`);
+        //};
+
+        $scope.navigateToNoteDetail = function (noteId) {
+            $location.path(`/notedetail/${noteId}`);
         };
 
     }
