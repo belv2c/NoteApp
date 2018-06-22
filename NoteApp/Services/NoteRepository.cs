@@ -57,7 +57,8 @@ namespace NoteApp.Services
                 var sql = @"UPDATE [dbo].[Notee]
                                SET [Title] = @title
                                   ,[NoteBody] = @noteBody
-                                  ,[CreateDate] = @createDate";
+                                  ,[CreateDate] = @createDate
+                            WHERE [NoteId] = @noteId";
                 return db.Execute(sql, note);
             }
         }
