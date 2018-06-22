@@ -18,10 +18,6 @@
             $location.path(`/noteadd`);
         };
 
-        //$scope.navigateToNoteDetail = function () {
-        //    $location.path(`/notedetail`);
-        //};
-
         $scope.navigateToNoteDetail = function (noteId) {
             $location.path(`/notedetail/${noteId}`);
         };

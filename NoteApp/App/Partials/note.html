@@ -1,15 +1,16 @@
 ﻿<div ng-controller="NoteController" id="note-add">
+    <button ng-click="navigateToNoteForm()" class="btn btn-primary new-btn offset-4">New Note + </button>
+    <div class="main-note container">
+        <div class="row justify-content-start">
+        <div class="notes-list col-4" ng-repeat="note in notes" ng-click="navigateToNoteDetail(note.NoteId)">
+            <h3>{{note.Title}}<h3/>
+            <p>{{note.CreateDate}}</p>
+            <p>{{note.NoteBody}}</p>
 
-    <button ng-click="navigateToNoteForm()" class="btn btn-primary new-btn">New Note + </button>
-
-
-    <div class="notes-row" ng-repeat="note in notes" ng-click="navigateToNoteDetail(note.NoteId)">
-        <p>{{note.Title}}</p>
-        <p>{{note.CreateDate}}</p>
-
-    <button type="button" ng-click="navigateToNoteDetail(note.NoteId)" class="btn btn-warning">Edit</button>
+            <button type="button" ng-click="navigateToNoteDetail(note.NoteId)" class="btn btn-warning">Edit</button>
+            </div>
+        </div>
     </div>
-
 </div>
 
 
