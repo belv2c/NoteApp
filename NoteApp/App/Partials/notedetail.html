@@ -12,7 +12,8 @@
             <input ng-model="note.NoteBody" type="text" class="form-control" id="make">
         </div>
         <div class="row">
-            <button ng-click="updateNote(note)" class=" btn btn-primary col-md-1">Save</button>
+            <button ng-click="update()" class="btn btn-primary col-md-1">Save</button>
+            <button ng-click="deleteNote(noteId)" class="btn btn-primary col-md-1">Delete</button>
             <button ng-click="navigateToNoteList()" class="btn btn-secondary col-md-1">Cancel</button>
         </div>
     </form>

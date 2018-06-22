@@ -10,14 +10,21 @@
             });
         }();
 
+        $scope.update = (note) => {
+            NoteService.update(note).then(function (results) {
+                $location.url(`notedetail`);
+            }).catch(function (err) {
+                console.log("error in updateNote in controller", err);
+            })
+        };
 
-        //$scope.deleteNote = function () {
-        //    NoteService.deleteNote($routeParams.id).then(function (results) {
-        //        console.log(results);
-        //    }).catch(function (err) {
-        //        console.log("error in deleteNote in controller", err);
-        //    });
-        //};
+        $scope.deleteNote = function () {
+            NoteService.deleteNote($scope.note.NoteId).then(function (results) {
+                $location.url(`notes`);
+            }).catch(function (err) {
+                console.log("error in deleteComputer in controller", err);
+            });
+        };
 
         $scope.navigateToNoteList = function () {
             $location.path(`/noteadd`);

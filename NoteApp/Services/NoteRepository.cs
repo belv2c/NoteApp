@@ -49,29 +49,30 @@ namespace NoteApp.Services
             }
         }
 
-        //internal int UpdateNote(Note note)
-        //{
-        //    using (var db = GetDb())
-        //    {
-        //        db.Open();
-        //        var sql = @"UPDATE [dbo].[Notee]
-        //                       SET [Title] = @title
-        //                          ,[NoteBody] = @noteBody
-        //                          ,[CreateDate] = @createDate";
-        //        return db.Execute(sql, note);
-        //    }
-        //}
+        internal int Update(Note note)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+                var sql = @"UPDATE [dbo].[Notee]
+                               SET [Title] = @title
+                                  ,[NoteBody] = @noteBody
+                                  ,[CreateDate] = @createDate";
+                return db.Execute(sql, note);
+            }
+        }
 
-        //internal int DeleteNote(int noteId)
-        //{
-        //    using (var db = GetDb())
-        //    {
-        //        db.Open();
-        //        var sql = @"DELETE FROM [dbo].[Notee]
-        //                     WHERE NoteId = @NoteId";
-        //        return db.Execute(sql, new { noteId });
-        //    }
-        //}
+
+        internal int DeleteNote(int noteId)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+                var sql = @"DELETE FROM [dbo].[Notee]
+                             WHERE NoteId = @NoteId";
+                return db.Execute(sql, new { noteId });
+            }
+        }
 
 
     }

@@ -16,27 +16,26 @@
         });
     };
 
- 
 
-    //var updateNote = function (note) {
-    //    return $q((resolve, reject) => {
-    //        $http.put(`http://localhost:49935/api/notes`, JSON.stringify(note)).then(function (results) {
-    //            resolve(results);
-    //        }).catch(function (err) {
-    //            reject("error in getNoteById in Service", err);
-    //        });
-    //    });
-    //}
+    var update = function (noteId) {
+        return $q((resolve, reject) => {
+            $http.put(`http://localhost:49935/api/notes`, JSON.stringify(noteId)).then(function (results) {
+                resolve(results);
+            }).catch(function (err) {
+                reject("error in updateNoteDetails in Service", err);
+            });
+        });
+    };
 
-    //const deleteNote = function (noteId) {
-    //    return $q((resolve, reject) => {
-    //        $http.delete(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
-    //            resolve(results);
-    //        }).catch(function (err) {
-    //            reject("error in deleteNote in Service", err);
-    //        });
-    //    });
-    //};
+    const deleteNote = function (noteId) {
+        return $q((resolve, reject) => {
+            $http.delete(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
+                resolve(results);
+            }).catch(function (err) {
+                reject("error in deleteNote in Service", err);
+            });
+        });
+    };
 
     const addNote = function (note) {
         return $q((resolve, reject) => {
@@ -53,16 +52,6 @@
         return $http.get(`/api/notes/${noteId}`);
     };
 
-    //var getNoteById = function (noteId) {
-    //    return $q((resolve, reject) => {
-    //        $http.get(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
-    //            resolve(results[0]);
-    //        }).catch(function (err) {
-    //            reject("error in getNoteById in Service", err);
-    //        });
-    //    });
-    //};
 
-
-    return { getAllNotes, addNote, getNoteById };
+    return { getAllNotes, addNote, deleteNote, getNoteById, update };
 });
