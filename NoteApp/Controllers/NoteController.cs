@@ -33,22 +33,22 @@ namespace NoteApp.Controllers
             return Request.CreateListRecordsResponse(result);
         }
 
-        //[Route("{noteId}"), HttpPut]
-        //public HttpResponseMessage UpdateNote(Note note, int noteId)
-        //{
-        //    note.NoteId = noteId;
-        //    var repo = new NoteRepository();
-        //    var result = repo.UpdateNote(note);
-        //    return Request.CreateUpdateRecordResponse(result);
-        //}
+        [Route("{noteId}"), HttpPut]
+        public HttpResponseMessage Update(Note note, int noteId)
+        {
+            note.NoteId = noteId;
+            var repository = new NoteRepository();
+            var result = repository.Update(note);
+            return Request.CreateAddRecordResponse(result);
+        }
 
-        //[HttpDelete, Route("{noteId}")]
-        //public HttpResponseMessage DeleteNote(int noteId)
-        //{
-        //    var repo = new NoteRepository();
-        //    var result = repo.DeleteNote(noteId);
-        //    return Request.CreateUpdateRecordResponse(result);
-        //}
+        [HttpDelete, Route("{noteId}")]
+        public HttpResponseMessage DeleteNote(int noteId)
+        {
+            var repo = new NoteRepository();
+            var result = repo.DeleteNote(noteId);
+            return Request.CreateUpdateRecordResponse(result);
+        }
 
 
     }
