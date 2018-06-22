@@ -31,7 +31,7 @@ app.config(["$routeProvider", function ($routeProvider) {
             controller: "NoteController"
         })
 
-        .when("/notedetail",
+        .when("/notedetail/:noteId",
         {
             templateUrl: "/App/Partials/notedetail.html",
             controller: "NoteDetailController"

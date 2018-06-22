@@ -53,5 +53,16 @@
         return $http.get(`/api/notes/${noteId}`);
     };
 
+    //var getNoteById = function (noteId) {
+    //    return $q((resolve, reject) => {
+    //        $http.get(`http://localhost:49935/api/notes/${noteId}`).then(function (results) {
+    //            resolve(results[0]);
+    //        }).catch(function (err) {
+    //            reject("error in getNoteById in Service", err);
+    //        });
+    //    });
+    //};
+
+
     return { getAllNotes, addNote, getNoteById };
 });

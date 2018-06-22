@@ -4,7 +4,7 @@
         var getNoteById = function () {
             NoteService.getNoteById($routeParams.noteId).then(function (results) {
                 $scope.notes = results.data;
-                console.log("note", results.data);
+                console.log("note", results.data[0]);
             }).catch(function (err) {
                 console.log("error in getNoteById in controller", err);
             });

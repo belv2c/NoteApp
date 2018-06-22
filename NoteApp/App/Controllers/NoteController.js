@@ -9,16 +9,6 @@
                 console.log("error in getAllNotes", error);
             });
         }();
-
-        var getNoteById = function () {
-            NoteService.getNoteById($routeParams.id).then(function (results) {
-                $scope.notes = results.data;
-                console.log("note", results.data);
-            }).catch(function (err) {
-                console.log("error in getNoteById in controller", err);
-            });
-        }();
-
         
         $scope.navigateToNoteList = function () {
             $location.path('/notes');

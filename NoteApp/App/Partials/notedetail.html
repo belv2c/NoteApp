@@ -1,23 +1,19 @@
-﻿<div id="details-container" class="container-fluid">
-    <h1>Edit note</h1>
-    <button ng-click="navigateToNoteList()" class="btn btn-primary offset-md-5 add-btn">Go Back</button>
-    <div class="row align-items-center justify-content-center">
-        <div class="main-tbl-div">
-            <table class="table table-striped table-bordered table-hover">
-                <caption>Editing note: {{note.Title}}</caption>
-                <thead>
-                    <tr>
-                        <th scope="col" class="th">Date created:</th>
-                        <th scope="col" class="th">NoteBody</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{note.CreateDate}}</td>
-                        <td>{{note.NoteBody}}</td>
-                    </tr>
-                </tbody>
-            </table>
+﻿<div ng-controller="NoteDetailController" ng-init="getNoteById()" id="note-detail" ng-repeat="note in notes">
+    <h2>Edit Note</h2>
+    <p>Created on: {{note.CreateDate}}</p>
+
+    <form>
+        <div class="form-group" ng-repeat="note in notes">
+            <label for="title">Title</label>
+            <input ng-model="note.Title" type="text" class="form-control" id="title" placeholder="{{note.Title}}">
         </div>
-    </div>
+        <div class="form-group" ng-repeat="note in notes">
+            <label for="body">Note Body</label>
+            <input ng-model="note.NoteBody" type="text" class="form-control" id="make">
+        </div>
+        <div class="row">
+            <button ng-click="updateNote(note)" class=" btn btn-primary col-md-1">Save</button>
+            <button ng-click="navigateToNoteList()" class="btn btn-secondary col-md-1">Cancel</button>
+        </div>
+    </form>
 </div>
