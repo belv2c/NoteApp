@@ -5,14 +5,14 @@
     <form>
         <div class="form-group" ng-repeat="note in notes">
             <label for="title">Title</label>
-            <input ng-model="note.Title" type="text" class="form-control" id="title" placeholder="{{note.Title}}">
+            <input ng-model="note.Title" type="text" class="form-control" id="title">
         </div>
         <div class="form-group" ng-repeat="note in notes">
-            <label for="body">Note Body</label>
-            <input ng-model="note.NoteBody" type="text" class="form-control" id="make">
+            <label for="formControlTextarea">Note Body:</label>
+            <textarea ng-model="note.NoteBody" class="form-control" id="formControlTextarea" rows="10"></textarea>
         </div>
         <div class="row">
-            <button ng-click="update()" class="btn btn-primary col-md-1">Save</button>
+            <button ng-click="editNote(note)" class="btn btn-primary col-md-1">Save</button>
             <button ng-click="deleteNote(noteId)" class="btn btn-primary col-md-1">Delete</button>
             <button ng-click="navigateToNoteList()" class="btn btn-secondary col-md-1">Cancel</button>
         </div>

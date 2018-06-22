@@ -15,3 +15,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.main-note {
+    margin-top: 52px;
+}
+
+.notes-list {
+    margin-bottom: 54px;
+}

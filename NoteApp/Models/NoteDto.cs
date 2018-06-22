@@ -11,6 +11,5 @@ namespace NoteApp.Models
         public string Title { get; set; }
         public string NoteBody { get; set; }
         public DateTime CreateDate {get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

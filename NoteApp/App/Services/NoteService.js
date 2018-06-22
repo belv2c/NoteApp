@@ -17,15 +17,25 @@
     };
 
 
-    var update = function (noteId) {
-        return $q((resolve, reject) => {
-            $http.put(`http://localhost:49935/api/notes`, JSON.stringify(noteId)).then(function (results) {
-                resolve(results);
-            }).catch(function (err) {
-                reject("error in updateNoteDetails in Service", err);
-            });
-        });
-    };
+    //const update = function (noteId) {
+    //    return $q((resolve, reject) => {
+    //        $http.put(`http://localhost:49935/api/${noteId}`, JSON.stringify(noteId)).then(function (results) {
+    //            resolve(results);
+    //        }).catch(function (err) {
+    //            reject("error in update in Service", err);
+    //        });
+    //    });
+    //};
+
+    //const update = function (note) {
+    //    return $q((resolve, reject) => {
+    //        $http.put(`http://localhost:49935/api/notes/${note.NoteId}`, JSON.stringify(note)).then(function (results) {
+    //            resolve(results);
+    //        }).catch(function (err) {
+    //            reject("error in update in Service", err);
+    //        });
+    //    });
+    //};
 
     const deleteNote = function (noteId) {
         return $q((resolve, reject) => {
@@ -53,5 +63,5 @@
     };
 
 
-    return { getAllNotes, addNote, deleteNote, getNoteById, update };
+    return { getAllNotes, addNote, deleteNote, getNoteById };
 });

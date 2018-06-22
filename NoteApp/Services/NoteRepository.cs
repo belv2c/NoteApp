@@ -49,7 +49,7 @@ namespace NoteApp.Services
             }
         }
 
-        internal int Update(Note note)
+        internal int Update(NoteDto notedto)
         {
             using (var db = GetDb())
             {
@@ -59,7 +59,7 @@ namespace NoteApp.Services
                                   ,[NoteBody] = @noteBody
                                   ,[CreateDate] = @createDate
                             WHERE [NoteId] = @noteId";
-                return db.Execute(sql, note);
+                return db.Execute(sql, notedto);
             }
         }
 
