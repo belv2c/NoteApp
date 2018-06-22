@@ -1,5 +1,5 @@
-﻿app.controller("NoteController", ["$scope", "$http", "$location", "NoteService",
-    function ($scope, $http, $location, NoteService) {
+﻿app.controller("NoteController", ["$scope", "$http", "$location", "$routeParams", "NoteService",
+    function ($scope, $http, $location, $routeParams, NoteService) {
         $scope.message = "this is a test";
 
         var getAllNotes = function () {
@@ -9,21 +9,21 @@
                 console.log("error in getAllNotes", error);
             });
         }();
-
-        //const addNote = function () {
-        //    NoteService.addNote($scope.note).then(function (results2) {
-        //        console.log("This is from addnote", results2);
-        //    }).catch(function (err) {
-        //        console.log("error in addDepartment in controller", err);
-        //    });
-        //};
-
-        $scope.navigateToHome = function () {
-            $location.path(`/Home`);
+        
+        $scope.navigateToNoteList = function () {
+            $location.path('/notes');
         };
 
         $scope.navigateToNoteForm = function () {
             $location.path(`/noteadd`);
+        };
+
+        //$scope.navigateToNoteDetail = function () {
+        //    $location.path(`/notedetail`);
+        //};
+
+        $scope.navigateToNoteDetail = function (noteId) {
+            $location.path(`/notedetail/${noteId}`);
         };
 
     }

@@ -29,7 +29,6 @@ namespace NoteApp.Services
             }
         }
 
-
         public List<Note> ListNote()
         {
             using (var db = GetDb())
@@ -39,6 +38,40 @@ namespace NoteApp.Services
                 return getAllNotes.ToList();
             }
         }
+
+        public List<Note> GetNoteById(int noteId)
+        {
+            using (var db = GetDb())
+            {
+                db.Open();
+                var sql = "Select * From dbo.Notee WHERE noteId = @noteId";
+                return db.Query<Note>(sql, new { noteId }).ToList();
+            }
+        }
+
+        //internal int UpdateNote(Note note)
+        //{
+        //    using (var db = GetDb())
+        //    {
+        //        db.Open();
+        //        var sql = @"UPDATE [dbo].[Notee]
+        //                       SET [Title] = @title
+        //                          ,[NoteBody] = @noteBody
+        //                          ,[CreateDate] = @createDate";
+        //        return db.Execute(sql, note);
+        //    }
+        //}
+
+        //internal int DeleteNote(int noteId)
+        //{
+        //    using (var db = GetDb())
+        //    {
+        //        db.Open();
+        //        var sql = @"DELETE FROM [dbo].[Notee]
+        //                     WHERE NoteId = @NoteId";
+        //        return db.Execute(sql, new { noteId });
+        //    }
+        //}
 
 
     }

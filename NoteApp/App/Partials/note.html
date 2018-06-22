@@ -3,14 +3,11 @@
     <button ng-click="navigateToNoteForm()" class="btn btn-primary new-btn">New Note + </button>
 
 
-    <div class="notes-row" ng-repeat="note in notes">
-        <p>{{note.NoteId}}</p>
+    <div class="notes-row" ng-repeat="note in notes" ng-click="navigateToNoteDetail(note.NoteId)">
         <p>{{note.Title}}</p>
-        <p>{{note.NoteBody}}</p>
         <p>{{note.CreateDate}}</p>
 
-    <button type="button" class="btn btn-warning">Edit</button>
-    <button type="button" class="btn btn-danger">Delete</button>
+    <button type="button" ng-click="navigateToNoteDetail(note.NoteId)" class="btn btn-warning">Edit</button>
     </div>
 
 </div>

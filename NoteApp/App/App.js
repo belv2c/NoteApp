@@ -18,5 +18,24 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/App/Partials/noteadd.html",
             controller: "NoteAddController"
         })
+
+        .when("/notedetail/:noteId",
+        {
+            templateUrl: "/App/Partials/notedetail.html",
+            controller: "NoteController"
+        })
+
+        .when("/notes/:noteId",
+        {
+            templateUrl: "/App/Partials/note.html",
+            controller: "NoteController"
+        })
+
+        .when("/notedetail/:noteId",
+        {
+            templateUrl: "/App/Partials/notedetail.html",
+            controller: "NoteDetailController"
+        })
+
         .otherwise('/');
 }]);
